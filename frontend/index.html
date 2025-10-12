@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Mind</title>
+</head>
+<body>
+    <section class="one">
+        <nav class="navone"><h1>Mind.</h1></nav>
+
+        <section class="wrapper">
+            <div class="form">
+                <div class="inputs">
+                    <input type="text" name="title" id="title" class="title" placeholder="Título" autocomplete="off">
+                    <!-- <input type="text" name="describe" id="describe" class="describe" placeholder="Descrição" autocomplete="off"> -->
+                    <textarea id="describe" class="describe" name="describe" rows="4" cols="50" placeholder="Descrição"></textarea>
+                </div>
+                
+                <button type="button" id="add"><img src="./assets/images/plus.svg" alt="Plus"></button>
+            </div>    
+
+            <ul class="unorderedlist"></ul>
+        </section>
+    </section>
+    
+    
+    <section class="two">
+        <nav class="navtwo"><p>Fortaleça suas ideias</p></nav>
+        
+        <section class="logbook">
+            <h1>Concluídas</h1>
+        </section>
+    </section>
+
+
+    <div class="edit">
+        <div class="edit-form">
+                <div class="edit-inputs">
+                    <input type="text" name="title" id="edit-title" class="edit-title" placeholder="Título" autocomplete="off">
+                    <!-- <input type="text" name="describe" id="describe" class="describe" placeholder="Descrição" autocomplete="off"> -->
+                    <textarea id="edit-describe" class="edit-describe" name="describe" rows="4" cols="50" placeholder="Descrição"></textarea>
+                </div>
+                
+                <button type="button" id="close"><img src="./assets/images/close.svg" alt="Close"></button>
+            </div> 
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

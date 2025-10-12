@@ -1,0 +1,324 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    
+    box-sizing: border-box;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    color: #2e2e2ef0;
+}
+
+html {
+    /* Modificar o realce(highlight) usado por celulares para auxiliar visualmente que aquele elemento é "clicável" */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+}
+
+.one {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.one > nav {
+    height: 10%;
+
+    padding: 0.5rem 1.5rem;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.one > nav > h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 2.6rem;
+}
+
+.wrapper {
+    height: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form {
+    width: 35rem;
+    height: 11rem;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    
+    display: flex;
+    gap: 1rem;
+}
+
+.inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title, .describe {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    background-color: #ebebebdc;
+}
+
+.title::placeholder, .describe::placeholder {
+    color: rgba(0 0 0 / 35%);
+}
+
+.title {
+    height: 40%;
+    font-size: 1.3rem;
+}
+
+.describe {
+    height: 60%;
+    font-size: 1.1rem;
+    resize: none; 
+    color: #2e2e2ed0;     
+}
+
+button {
+    width: 3rem;
+    height: 3rem;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 100%;
+    /* outline: none; */
+    background-color: #1B75DE;
+    font-size: 1.2rem;
+    color: #ffffff;
+    cursor: pointer;
+
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+  background-color: #4590E4;
+}
+
+.unorderedlist {
+    width: 35rem;
+    height: 22rem;
+    border-radius: 0.25rem;
+    list-style: none;
+    
+    overflow: scroll;
+
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+.unorderedlist li {
+    width: 100%;
+    height: 5.5rem;
+    padding: 0.9rem 1.75rem;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.unorderedlist li div {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.unorderedlist li div p {
+    font-size: 1.3rem;
+}
+
+.unorderedlist > li > p {
+    font-size: 1rem;
+    margin-left: 1.9rem;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.unorderedlist li img {
+    cursor: pointer;
+}
+
+.unorderedlist li:hover {
+    background-color: rgba(222, 222, 222, 0.204);
+} 
+
+.completed {
+    color: rgba(0 0 0 / 35%) !important; 
+}
+
+.monospace {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+
+
+
+.two {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #F4F4F4;
+}
+
+.navtwo {
+    width: 100%;
+    height: 10%;
+
+    padding: 0.5rem 1.5rem;
+
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.navtwo p {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.5rem;
+
+    font-weight: bold;
+}
+
+.logbook {
+    height: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logbook h1 {
+    
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 5rem;
+
+    
+}
+
+
+
+
+.edit {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      display: none;
+}
+
+.edit.active {
+    display: flex;
+}
+
+.edit-form {
+    width: 50rem;
+    height: 30rem;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    
+    display: flex;
+    gap: 1rem;
+
+    background-color: white;
+
+    border-radius: 0.5rem;
+
+    padding: 2rem;
+    
+}
+
+.edit-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-title, .edit-describe {
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.edit-title::placeholder, .edit-describe::placeholder {
+    color: rgba(0 0 0 / 35%);
+}
+
+.edit-title {
+    height: 20%;
+    font-size: 1.3rem;
+}
+
+.edit-describe {
+    height: 80%;
+    font-size: 1.1rem;
+    resize: none; 
+    color: #2e2e2ed0;     
+}
+
+.edit-button {
+    width: 3rem;
+    height: 3rem;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 100%;
+    /* outline: none; */
+    background-color: #1B75DE;
+    font-size: 1.2rem;
+    color: #ffffff;
+    cursor: pointer;
+
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+edit-button:hover {
+  background-color: #4590E4;
+}
+
+
+
+
+@media screen and (max-width: 728px){
+
+    h1 {
+        font-size: 5.25rem;
+    }
+    
+}
+
