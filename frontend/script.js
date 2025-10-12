@@ -1,6 +1,6 @@
-const addNewTask = document.querySelector('#add');
 const newTitleInput = document.querySelector('#title');
 const newDescribeInput = document.querySelector('#describe');
+const addNewTask = document.querySelector('#add');
 const editTitleInput = document.querySelector('.edit-title');
 const editDescribeInput = document.querySelector('.edit-describe');
 const closeWindow = document.querySelector('#close')

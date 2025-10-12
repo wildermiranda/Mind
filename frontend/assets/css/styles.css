@@ -20,7 +20,6 @@ body {
     height: 100vh;
 
     display: flex;
-
 }
 
 .one {
@@ -32,7 +31,6 @@ body {
 
 .one > nav {
     height: 10%;
-
     padding: 0.5rem 1.5rem;
 
     display: flex;
@@ -101,7 +99,6 @@ button {
     padding: 1.5rem;
     border: none;
     border-radius: 100%;
-    /* outline: none; */
     background-color: #1B75DE;
     font-size: 1.2rem;
     color: #ffffff;
@@ -179,19 +176,17 @@ button:hover {
 
 .two {
     width: 50%;
-
+    
     display: flex;
     flex-direction: column;
-
     background-color: #F4F4F4;
 }
 
 .navtwo {
     width: 100%;
     height: 10%;
-
     padding: 0.5rem 1.5rem;
-
+    
     display: flex;
     justify-content: right;
     align-items: center;
@@ -200,7 +195,6 @@ button:hover {
 .navtwo p {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 1.5rem;
-
     font-weight: bold;
 }
 
@@ -213,11 +207,8 @@ button:hover {
 }
 
 .logbook h1 {
-    
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 5rem;
-
-    
 }
 
 
@@ -234,7 +225,6 @@ button:hover {
       display: flex;
       justify-content: center;
       align-items: center;
-
       display: none;
 }
 
@@ -247,16 +237,11 @@ button:hover {
     height: 30rem;
     max-width: 100%;
     margin-bottom: 2rem;
-    
     display: flex;
     gap: 1rem;
-
     background-color: white;
-
     border-radius: 0.5rem;
-
     padding: 2rem;
-    
 }
 
 .edit-inputs {
@@ -294,12 +279,10 @@ button:hover {
     padding: 1.5rem;
     border: none;
     border-radius: 100%;
-    /* outline: none; */
     background-color: #1B75DE;
     font-size: 1.2rem;
     color: #ffffff;
     cursor: pointer;
-
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
     display: flex;
