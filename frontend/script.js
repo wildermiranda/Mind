@@ -47,6 +47,7 @@ function createTodoElement(todo) {
     const img = li.querySelector('.checkbox');
     const title = li.querySelector('.todo-title');
     const describe = li.querySelector('.todo-describe');
+    const code = li.querySelector('code')
 
     img.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -55,6 +56,7 @@ function createTodoElement(todo) {
         const isCurrentlyCompleted = li.classList.contains('visible');
         img.src = isCurrentlyCompleted ? 'assets/images/filled.svg' : 'assets/images/not-filled.svg';
         
+        code && code.classList.toggle('completed');
         describe.classList.toggle('completed');
         title.classList.toggle('completed');
 
