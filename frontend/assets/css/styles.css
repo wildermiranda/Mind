@@ -7,7 +7,7 @@
 
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 16px;
-    color: #2e2e2ef0;
+    color: #2E2E2EF0;
 }
 
 html {
@@ -18,41 +18,60 @@ html {
 body {
     width: 100%;
     height: 100vh;
-
     display: flex;
 }
 
-.one {
-    width: 50%;
 
+/* Seção Principal (Tarefas pendentes) */
+
+.task-section {
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
 
-.one > nav {
+.task-header {
     height: 10%;
     padding: 0.5rem 1.5rem;
-
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
-.one > nav > h1 {
+.task-header > h1 {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 2.6rem;
 }
 
-.wrapper {
-    height: 90%;
 
+
+
+.content-wrapper {
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.form {
+/* Estilos específicos para a seção Concluídas */
+
+.task-completed .content-wrapper {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7.2rem;
+}
+
+.task-completed h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 5rem;
+}
+
+/* Formulário para adicionar uma nova tarefa */
+
+.task-form {
     width: 35rem;
     height: 11rem;
     max-width: 100%;
@@ -62,36 +81,38 @@ body {
     gap: 1rem;
 }
 
-.inputs {
+.form-inputs {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.title, .describe {
+.input-title, .input-describe {
     width: 100%;
     padding: 1rem;
     border: none;
     border-radius: 0.5rem;
     outline: none;
-    background-color: #ebebebdc;
+    background-color: #EBEBEBDC;
 }
 
-.title::placeholder, .describe::placeholder {
+.input-title::placeholder, .input-describe::placeholder {
     color: rgba(0 0 0 / 35%);
 }
 
-.title {
+.input-title {
     height: 40%;
     font-size: 1.3rem;
 }
 
-.describe {
+.input-describe {
     height: 60%;
     font-size: 1.1rem;
     resize: none; 
-    color: #2e2e2ed0;     
+    color: #2E2E2ED0;
 }
+
+/* Estilos do botão */
 
 button {
     width: 3rem;
@@ -101,7 +122,7 @@ button {
     border-radius: 100%;
     background-color: #1B75DE;
     font-size: 1.2rem;
-    color: #ffffff;
+    color: #FFFFFF;
     cursor: pointer;
 
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -115,7 +136,9 @@ button:hover {
   background-color: #4590E4;
 }
 
-.unorderedlist {
+/* Lista de Tarefas (Pendentes e Concluídas) */
+
+.task-list {
     width: 35rem;
     height: 22rem;
     border-radius: 0.25rem;
@@ -126,7 +149,7 @@ button:hover {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
 
-.unorderedlist li {
+.task-list li {
     width: 100%;
     height: 5.5rem;
     padding: 0.9rem 1.75rem;
@@ -137,52 +160,53 @@ button:hover {
     gap: 0.5rem;
 }
 
-.unorderedlist li div {
+.task-list li div {
     display: flex;
     gap: 0.75rem;
 }
 
-.unorderedlist li div p {
+.task-list li div p {
     font-size: 1.3rem;
 }
 
-.unorderedlist > li > p {
+.task-list > li > p {
     font-size: 1rem;
     margin-left: 1.9rem;
 
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    color: rgba(46, 46, 46, 0.845);
 }
 
-.unorderedlist li img {
+.task-list li img {
     cursor: pointer;
 }
 
-.unorderedlist li:hover {
+.task-list li:hover {
     background-color: rgba(222, 222, 222, 0.204);
-} 
+}
+
 
 .completed {
     color: rgba(0 0 0 / 35%) !important; 
 }
 
-.monospace {
-    font-family: 'JetBrains Mono', monospace;
+.display {
+    display: none !important;
 }
 
 
 
 
-.two {
-    width: 50%;
-    
-    display: flex;
-    flex-direction: column;
-    background-color: #F4F4F4;
+/* Seção Lateral (Concluídas) */
+
+.task-completed {
+    background-color: #F4F4F471;
 }
 
-.navtwo {
+.sidebar-header {
     width: 100%;
     height: 10%;
     padding: 0.5rem 1.5rem;
@@ -192,43 +216,32 @@ button:hover {
     align-items: center;
 }
 
-.navtwo p {
+.sidebar-header p {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.logbook {
-    height: 90%;
 
+
+
+/* Modal de edição */
+
+.modal-edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
-.logbook h1 {
-    font-family: "Bricolage Grotesque", sans-serif;
-    font-size: 5rem;
-}
-
-
-
-
-.edit {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      display: none;
-}
-
-.edit.active {
+.modal-edit.active {
     display: flex;
 }
 
@@ -239,69 +252,43 @@ button:hover {
     margin-bottom: 2rem;
     display: flex;
     gap: 1rem;
-    background-color: white;
+    background-color: #FFFFFF; 
     border-radius: 0.5rem;
     padding: 2rem;
 }
 
-.edit-inputs {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.edit-title, .edit-describe {
+.input-edit-title, .input-edit-describe {
     width: 100%;
     border: none;
     border-radius: 0.5rem;
     outline: none;
 }
 
-.edit-title::placeholder, .edit-describe::placeholder {
+.input-edit-title::placeholder, .input-edit-describe::placeholder {
     color: rgba(0 0 0 / 35%);
 }
 
-.edit-title {
+.input-edit-title {
     height: 20%;
     font-size: 1.3rem;
 }
 
-.edit-describe {
+.input-edit-describe {
     height: 80%;
     font-size: 1.1rem;
     resize: none; 
-    color: #2e2e2ed0;     
-}
-
-.edit-button {
-    width: 3rem;
-    height: 3rem;
-    padding: 1.5rem;
-    border: none;
-    border-radius: 100%;
-    background-color: #1B75DE;
-    font-size: 1.2rem;
-    color: #ffffff;
-    cursor: pointer;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-edit-button:hover {
-  background-color: #4590E4;
+    color: #2E2E2ED0;
 }
 
 
 
+
+/* Media Queries */
 
 @media screen and (max-width: 728px){
 
     h1 {
         font-size: 5.25rem;
     }
-    
-}
 
+}

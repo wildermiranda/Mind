@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Mind</title>
+    <title>Mind - Gerenciador de Tarefas</title>  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700;1,100..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="assets/css/styles.css">    
 </head>
-<body>
-    <section class="one">
-        <nav class="navone"><h1>Mind.</h1></nav>
+<body> 
+    <main class="task-section task-pending" aria-label="Tarefas Pendentes">
+        <header class="task-header" role="banner">
+            <h1>Mind.</h1>
+        </header>
 
-        <section class="wrapper">
-            <div class="form">
-                <div class="inputs">
-                    <input type="text" name="title" id="title" class="title" placeholder="Título" autocomplete="off">
-                    <!-- <input type="text" name="describe" id="describe" class="describe" placeholder="Descrição" autocomplete="off"> -->
-                    <textarea id="describe" class="describe" name="describe" rows="4" cols="50" placeholder="Descrição"></textarea>
+        <div class="content-wrapper">
+            <form class="task-form" aria-label="Adicionar nova tarefa">
+                <div class="form-inputs">
+                    <input type="text" name="title" id="title" class="input-title" placeholder="Título" autocomplete="off" required>
+                    <textarea id="describe" class="input-describe" name="describe" rows="4" cols="50" placeholder="Descrição"></textarea>
                 </div>
                 
-                <button type="button" id="add"><img src="./assets/images/plus.svg" alt="Plus"></button>
-            </div>    
+                <button type="submit" id="task-btn" aria-label="Adicionar Tarefa">
+                    <img src="./assets/images/plus.svg" alt="Ícone de mais">
+                </button>
+            </form>    
 
-            <ul class="unorderedlist"></ul>
-        </section>
-    </section>
+            <ul class="task-list list-pending" aria-live="polite"></ul>
+        </div>
+    </main>
     
     
-    <section class="two">
-        <nav class="navtwo"><p>Fortaleça suas ideias</p></nav>
+    <section class="task-section task-completed" aria-label="Tarefas Concluídas">
+        <header class="sidebar-header">
+            <p>Fortaleça suas ideias</p>
+        </header>
         
-        <section class="logbook">
-            <h1>Concluídas</h1>
-        </section>
+        <div class="content-wrapper">
+            <h2>Concluídas</h2>
+            <ul class="task-list list-completed" aria-live="polite"></ul>
+        </div>
     </section>
 
 
-    <div class="edit">
+    <div class="modal-edit" role="dialog" aria-modal="true">
         <div class="edit-form">
-                <div class="edit-inputs">
-                    <input type="text" name="title" id="edit-title" class="edit-title" placeholder="Título" autocomplete="off">
-                    <!-- <input type="text" name="describe" id="describe" class="describe" placeholder="Descrição" autocomplete="off"> -->
-                    <textarea id="edit-describe" class="edit-describe" name="describe" rows="4" cols="50" placeholder="Descrição"></textarea>
-                </div>
-                
-                <button type="button" id="close"><img src="./assets/images/close.svg" alt="Close"></button>
-            </div> 
+            <div class="form-inputs">
+                <input type="text" name="edit-title" id="edit-title" class="input-edit-title" placeholder="Título" autocomplete="off">
+                <textarea id="edit-describe" class="input-edit-describe" name="edit-describe" rows="4" cols="50" placeholder="Descrição"></textarea>
+            </div>
+            
+            <button type="button" id="close-modal-btn" aria-label="Fechar Janela de Edição">
+                <img src="./assets/images/close.svg" alt="Ícone de fechar">
+            </button>
+        </div> 
     </div>
 
     <script src="script.js"></script>
