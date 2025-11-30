@@ -4,6 +4,11 @@ from fastapi.middleware.cors import CORSMiddleware  # Importe a biblioteca de CO
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+
 app = FastAPI()
 
 # Configuração do CORS
@@ -41,9 +46,7 @@ class Tarefa(TarefaBase):
         orm_mode = True
 
 
-
-
-# --- ENDPOINTS DA API ---
+# --- ENDPOINTS DA API REST ---
 
 # Endpoint 1: Criar uma nova tarefa (POST)
 @app.post("/todos/", response_model=Tarefa)
@@ -91,3 +94,33 @@ def excluir_todas_as_tarefas(db: Session = Depends(get_db)):
     db.query(models.Tarefa).delete()
     db.commit()
     return {"message": "Todas as tarefas foram excluídas com sucesso."}
+
+
+# --- CONFIGURAÇÃO DE TEMPLATES E ARQUIVOS ESTÁTICOS (Frontend) ---
+
+app.mount("/static", StaticFiles(directory="../frontend/static"), name="static")
+
+templates = Jinja2Templates(directory="../frontend/templates")
+
+# --- ENDPOINTS DO FRONTEND (Renderização de HTML) ---
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse(
+        name="inbox.html",  # Renderiza o template filho 'home.html'
+        context={"request": request}
+    )
+
+@app.get("/inbox", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse(
+        name="inbox.html",  # Renderiza o template filho 'home.html'
+        context={"request": request}
+    )
+
+@app.get("/concluidas", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse(
+        name="concluidas.html",  # Renderiza o template filho 'home.html'
+        context={"request": request}
+    )

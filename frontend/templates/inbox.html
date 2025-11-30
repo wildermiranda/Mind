@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form class="task-form" aria-label="Adicionar nova tarefa">
+        <div class="form-inputs">
+            <input type="text" name="title" id="title" class="input-title" placeholder="Título" autocomplete="off" required>
+            <textarea id="describe" class="input-describe" name="describe" rows="4" cols="50" placeholder="Descrição"></textarea>
+        </div>
+ 
+        <button type="submit" id="task-btn" class="task-btn" aria-label="Adicionar Tarefa">
+            <img src="../static/images/plus.svg" alt="Ícone de mais">
+        </button>
+    </form>    
+
+    <ul class="task-list list-pending" aria-live="polite"></ul>
+{% endblock %}

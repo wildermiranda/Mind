@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Stack+Sans+Notch:wght@200..700&family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind - Gerenciador de Tarefas</title>  
+</head>
+<body>
+    <div class="menu">
+        <header class="sidebar-header" role="banner" style="height: 10%;">
+            <h1>Mind.</h1>
+        </header>
+
+        <div class="menu-items">
+             <ul>
+                <li><a href="/inbox">Inbox</a></li>
+                <li><a href="/concluidas">Concluídas</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="task-section task-pending" aria-label="Tarefas Pendentes">
+        <header class="main-header">
+            <p>Fortaleça suas ideias</p>
+        </header>
+
+        <div class="content-wrapper">
+            {% block content %} {% endblock %}
+        </div>
+    </main>
+
+    <div class="modal-edit" role="dialog" aria-modal="true">
+        <div class="edit-form">
+            <div class="form-inputs">
+                <input type="text" name="edit-title" id="edit-title" class="input-edit-title" placeholder="Título" autocomplete="off">
+                <textarea id="edit-describe" class="input-edit-describe" name="edit-describe" rows="4" cols="50" placeholder="Descrição"></textarea>
+            </div>
+            
+            <button type="button" id="close-modal-btn" class="close-modal-btn" aria-label="Fechar Janela de Edição">
+                <img src="../static/images/close.svg" alt="Ícone de fechar">
+            </button>
+        </div> 
+    </div>
+
+    <div id="custom-confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="wrapper">
+                <h3>Confirmar Exclusão</h3>
+                <p>Você realmente deseja excluir esta tarefa?</p>
+                <div class="modal-actions">
+                    <button id="btn-confirm-delete" class="confirm-delete">Excluir</button>
+                    <button id="btn-cancel" class="cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='js/script.js') }}"></script>
+</body>
+</html>

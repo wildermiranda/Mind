@@ -21,55 +21,85 @@ body {
     display: flex;
 }
 
+/* Menu lateral */
 
-/* Seção Principal (Tarefas pendentes) */
-
-.task-section {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+.menu {
+    width: 20%;
+    background-color: #F4F4F471;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
-.task-header {
-    height: 10%;
-    padding: 0.5rem 1.5rem;
+.sidebar-header {
+    padding: 0 1.5rem;
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
-.task-header > h1 {
-    font-family: "Bricolage Grotesque", sans-serif;
-    font-size: 2.6rem;
+.sidebar-header > h1 {
+    font-family: "Stack Sans Notch", sans-serif;
+    font-size: 3rem;
 }
 
+.menu-items {
+    height: 90%; 
+    padding-top: 6rem;
+    
+    display: flex; 
+    justify-content: center;
+}
 
+.menu-items ul {
+    display: flex; 
+    flex-direction: column; 
+    gap: 2rem;
+    
+}
 
+.menu-items ul li {
+   width: 100%;
+    list-style: none;
+}
+
+/* Seção Principal (Tarefas pendentes) */
+
+.task-section {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    width: 100%;
+    height: 10%;
+    padding: 0 1.5rem;
+    
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.main-header p {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
 .content-wrapper {
     height: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-direction: column;
+
+    padding-top: 2.5rem;
 }
 
-/* Estilos específicos para a seção Concluídas */
-
-.task-completed .content-wrapper {
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 7.2rem;
-}
-
-.task-completed h2 {
+.content-wrapper h2 {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 5rem;
+    margin-bottom: 5rem;
 }
-
-/* Formulário para adicionar uma nova tarefa */
 
 .task-form {
     width: 35rem;
@@ -112,9 +142,7 @@ body {
     color: #2E2E2ED0;
 }
 
-/* Estilos do botão */
-
-button {
+.close-modal-btn, .task-btn {
     width: 3rem;
     height: 3rem;
     padding: 1.5rem;
@@ -132,7 +160,7 @@ button {
     justify-content: center;
 }
 
-button:hover {
+.close-modal-btn:hover, .task-btn:hover {
   background-color: #4590E4;
 }
 
@@ -140,7 +168,7 @@ button:hover {
 
 .task-list {
     width: 35rem;
-    height: 22rem;
+    height: 20rem;
     border-radius: 0.25rem;
     list-style: none;
     
@@ -163,6 +191,19 @@ button:hover {
 .task-list li div {
     display: flex;
     gap: 0.75rem;
+
+    justify-content: space-between;
+}
+
+.trash-btn {
+    padding: 0.25rem 0.3rem;
+    border: none;
+    cursor: pointer;
+    background-color: #EEEEEE;
+}
+
+.trash-btn:hover {
+  background-color: #D1D3D4;
 }
 
 .task-list li div p {
@@ -182,12 +223,12 @@ button:hover {
 
 .task-list li img {
     cursor: pointer;
+    width: 20px;
 }
 
 .task-list li:hover {
     background-color: rgba(222, 222, 222, 0.204);
 }
-
 
 .completed {
     color: rgba(0 0 0 / 35%) !important; 
@@ -196,34 +237,6 @@ button:hover {
 .display {
     display: none !important;
 }
-
-
-
-
-/* Seção Lateral (Concluídas) */
-
-.task-completed {
-    background-color: #F4F4F471;
-}
-
-.sidebar-header {
-    width: 100%;
-    height: 10%;
-    padding: 0.5rem 1.5rem;
-    
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.sidebar-header p {
-    font-family: "Bricolage Grotesque", sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-
-
 
 /* Modal de edição */
 
@@ -278,6 +291,82 @@ button:hover {
     font-size: 1.1rem;
     resize: none; 
     color: #2E2E2ED0;
+}
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    display: none; 
+}
+
+.modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #FFF;
+
+    width: 30rem;
+    height: 15rem;
+
+     border-radius: 0.5rem;
+}
+
+.modal-content > .wrapper {
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-content > .wrapper > h3 {
+    font-size: 2rem;
+}
+
+.modal-content > .wrapper > p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.modal-actions > button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.cancel {
+   background-color: #AAC4F5;
+}
+
+.cancel:hover {
+   background-color: #8CA9FF;
+}
+
+.confirm-delete {
+    background-color: #EEEEEE;
+}
+
+.confirm-delete:hover {
+    background-color: #D1D3D4;
 }
 
 
